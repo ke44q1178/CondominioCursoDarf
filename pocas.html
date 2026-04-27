@@ -1,0 +1,1901 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARF Pronto — Tributos sem mistério | Curso de DARF &amp; SICALC</title>
+    <meta name="description" content="DARF Pronto: descubra o código DARF certo, entenda o SICALC e aprenda a emitir o documento sem erro. Curso completo em linguagem simples.">
+    <meta name="keywords" content="emitir darf, codigo darf, sicalc, curso darf, carne leao, ganho de capital, irpf">
+    <meta name="author" content="DARF Pronto">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root{
+            --cream:#F6EFE3;
+            --cream-2:#EFE5D2;
+            --paper:#FBF7EE;
+            --ink:#1B1410;
+            --ink-2:#3A2C22;
+            --muted:#6B5B4D;
+            --rule:#D9CDB8;
+            --terracotta:#C2562C;
+            --terracotta-dk:#9B3F1E;
+            --burgundy:#5A1A2A;
+            --olive:#5C6B3A;
+            --gold:#C8932B;
+            --shadow-1:0 2px 0 var(--ink);
+            --shadow-2:0 12px 32px rgba(27,20,16,0.12);
+            --t:.4s cubic-bezier(.2,.8,.2,1);
+        }
+
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{
+            font-family:'Plus Jakarta Sans',sans-serif;
+            background:var(--cream);
+            color:var(--ink);
+            line-height:1.6;
+            overflow-x:hidden;
+            -webkit-font-smoothing:antialiased;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(27,20,16,.05) 1px, transparent 0);
+            background-size:22px 22px;
+        }
+
+        /* TYPOGRAPHY */
+        h1,h2,h3,h4,h5{
+            font-family:'Fraunces',serif;
+            font-weight:500;
+            line-height:1.05;
+            letter-spacing:-0.02em;
+            color:var(--ink);
+            font-variation-settings:"opsz" 144, "SOFT" 30;
+        }
+        h1{font-weight:400}
+        em.serif{font-style:italic;font-family:'Fraunces',serif;font-weight:400;font-variation-settings:"opsz" 144}
+        a{color:inherit;text-decoration:none}
+        ul{list-style:none}
+        button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+        p{color:var(--ink-2)}
+
+        .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 32px;position:relative}
+
+        /* TICKER NUMBERS */
+        .num-mono{font-family:'IBM Plex Mono',monospace;font-feature-settings:"tnum"}
+
+        /* BUTTONS */
+        .btn{
+            display:inline-flex;align-items:center;gap:10px;
+            padding:14px 22px;border-radius:999px;
+            font-weight:600;font-size:.93rem;
+            transition:var(--t);
+            font-family:'Plus Jakarta Sans',sans-serif;
+            border:1.5px solid var(--ink);
+        }
+        .btn-ink{background:var(--ink);color:var(--cream)}
+        .btn-ink:hover{background:var(--terracotta);border-color:var(--terracotta);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+        .btn-out{background:transparent;color:var(--ink)}
+        .btn-out:hover{background:var(--ink);color:var(--cream);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--terracotta)}
+        .btn-terra{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta)}
+        .btn-terra:hover{background:var(--terracotta-dk);border-color:var(--terracotta-dk);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+
+        /* MARQUEE TOP */
+        .ribbon{
+            background:var(--ink);color:var(--cream);
+            font-family:'IBM Plex Mono',monospace;
+            font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+            padding:9px 0;overflow:hidden;
+        }
+        .ribbon-track{display:flex;gap:50px;white-space:nowrap;animation:slide 38s linear infinite}
+        .ribbon-track span{display:inline-flex;align-items:center;gap:14px}
+        .ribbon-track span::after{content:'✦';color:var(--terracotta);font-size:.9rem}
+        @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+        /* HEADER */
+        header.nav{
+            position:sticky;top:0;z-index:60;
+            background:var(--cream);
+            border-bottom:1.5px solid var(--ink);
+        }
+        .nav-inner{
+            max-width:1280px;margin:0 auto;padding:18px 32px;
+            display:flex;align-items:center;gap:32px;
+        }
+        .brand{display:flex;align-items:center;gap:14px}
+        .brand-mark{
+            width:46px;height:46px;border-radius:50%;
+            background:var(--ink);color:var(--cream);
+            display:grid;place-items:center;
+            font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;
+            position:relative;
+        }
+        .brand-mark::after{
+            content:'';position:absolute;inset:-5px;border-radius:50%;
+            border:1.5px dashed var(--ink);
+        }
+        .brand-name{display:flex;flex-direction:column;line-height:1}
+        .brand-name b{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem;letter-spacing:-.01em}
+        .brand-name i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+        nav.menu{display:flex;gap:30px;margin-left:auto}
+        nav.menu a{
+            font-size:.92rem;font-weight:500;color:var(--ink-2);
+            position:relative;padding:6px 2px;
+        }
+        nav.menu a::after{
+            content:'';position:absolute;left:0;right:100%;bottom:-2px;height:2px;
+            background:var(--terracotta);transition:right .3s ease;
+        }
+        nav.menu a:hover::after,nav.menu a.active::after{right:0}
+        nav.menu a.active{color:var(--ink)}
+
+        .nav-actions{display:flex;gap:10px;align-items:center}
+        .nav-actions .btn{padding:11px 18px;font-size:.86rem}
+        .ham{display:none;width:46px;height:46px;border:1.5px solid var(--ink);border-radius:50%;align-items:center;justify-content:center;margin-left:auto}
+
+        /* HERO */
+        .hero{padding:80px 0 60px;position:relative}
+        .hero-grid{
+            display:grid;grid-template-columns:1.15fr .85fr;
+            gap:80px;align-items:start;
+        }
+        .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+            letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);
+            margin-bottom:32px;
+        }
+        .eyebrow::before{content:'';width:34px;height:1.5px;background:var(--terracotta)}
+        .eyebrow .num{color:var(--ink);font-weight:500}
+
+        .hero h1{
+            font-size:clamp(2.8rem,6.2vw,5.4rem);
+            margin-bottom:30px;
+            font-weight:300;
+        }
+        .hero h1 .hl{
+            font-style:italic;color:var(--terracotta);
+            font-weight:400;
+            position:relative;display:inline-block;
+        }
+        .hero h1 .hl::after{
+            content:'';position:absolute;left:-4px;right:-4px;bottom:6px;height:14px;
+            background:rgba(194,86,44,.18);z-index:-1;border-radius:3px;
+        }
+        .hero h1 .ul{
+            position:relative;display:inline-block;
+            text-decoration:underline;text-decoration-thickness:2px;
+            text-underline-offset:8px;text-decoration-color:var(--ink);
+        }
+
+        .hero p.lead{
+            font-size:1.18rem;color:var(--ink-2);
+            max-width:540px;margin-bottom:38px;
+            line-height:1.55;
+        }
+        .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:50px}
+
+        .hero-meta{
+            display:flex;gap:36px;flex-wrap:wrap;
+            padding-top:32px;
+            border-top:1.5px solid var(--ink);
+        }
+        .meta-item{display:flex;flex-direction:column;gap:4px}
+        .meta-item .v{
+            font-family:'Fraunces',serif;font-size:2rem;font-weight:400;
+            color:var(--ink);line-height:1;
+            font-variation-settings:"opsz" 144;
+        }
+        .meta-item .v small{font-size:1rem;color:var(--terracotta);font-style:italic}
+        .meta-item .l{
+            font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+            text-transform:uppercase;letter-spacing:.14em;color:var(--muted);
+        }
+
+        /* HERO RIGHT - "POSTAL DARF" */
+        .postal{
+            background:var(--paper);
+            border:1.5px solid var(--ink);
+            border-radius:18px;
+            padding:30px;
+            position:relative;
+            box-shadow:8px 8px 0 var(--ink);
+            transform:rotate(1.2deg);
+            transition:var(--t);
+        }
+        .postal:hover{transform:rotate(0)}
+        .postal::before{
+            content:'';position:absolute;
+            top:-22px;left:50%;transform:translateX(-50%) rotate(-6deg);
+            width:120px;height:34px;
+            background:repeating-linear-gradient(45deg,rgba(194,86,44,.7) 0 8px,transparent 8px 14px);
+            border-radius:3px;
+        }
+        .postal-stamp{
+            position:absolute;top:18px;right:18px;
+            width:84px;height:84px;border-radius:50%;
+            border:1.5px dashed var(--terracotta);
+            display:grid;place-items:center;
+            transform:rotate(-12deg);
+            background:var(--cream);
+        }
+        .postal-stamp i{display:block;text-align:center;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;color:var(--terracotta);line-height:1.4}
+        .postal-stamp i b{display:block;font-family:'Fraunces',serif;font-size:1rem;font-weight:600;font-style:italic;color:var(--terracotta-dk);margin:2px 0}
+
+        .postal-head{
+            font-family:'IBM Plex Mono',monospace;
+            font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+            color:var(--muted);margin-bottom:20px;
+        }
+        .postal h3{
+            font-size:1.55rem;font-weight:500;margin-bottom:6px;
+            font-style:italic;font-variation-settings:"opsz" 144;
+        }
+        .postal .sub{
+            font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+            color:var(--muted);margin-bottom:28px;letter-spacing:.04em;
+        }
+
+        .postal-rows{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin-bottom:22px}
+        .postal-row{
+            display:grid;grid-template-columns:1fr 1fr;
+            border-bottom:1px dashed var(--rule);
+        }
+        .postal-row:last-child{border-bottom:none}
+        .postal-row.full{grid-template-columns:1fr}
+        .postal-cell{padding:13px 14px;border-right:1px dashed var(--rule)}
+        .postal-cell:last-child{border-right:none}
+        .postal-cell .lab{
+            font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+            letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+            margin-bottom:5px;
+        }
+        .postal-cell .val{
+            font-family:'Fraunces',serif;font-weight:500;font-size:1rem;color:var(--ink);
+        }
+
+        .postal-total{
+            background:var(--ink);color:var(--cream);
+            padding:18px 22px;border-radius:12px;
+            display:flex;justify-content:space-between;align-items:baseline;
+            margin-bottom:18px;
+        }
+        .postal-total .l{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+        .postal-total .v{font-family:'Fraunces',serif;font-weight:400;font-size:2rem;font-style:italic;color:var(--cream)}
+
+        .postal-bar{
+            display:flex;gap:2px;height:38px;align-items:stretch;
+            margin-bottom:8px;
+        }
+        .postal-bar span{flex:1;background:var(--ink)}
+        .postal-bar span:nth-child(2n){flex:.4}
+        .postal-bar span:nth-child(3n){flex:.7}
+        .postal-bar span:nth-child(5n){flex:1.2;background:var(--terracotta)}
+        .postal-line{
+            font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+            text-align:center;color:var(--muted);
+        }
+
+        /* QUICK CARDS RAIL */
+        .quick-rail{
+            border-top:1.5px solid var(--ink);
+            border-bottom:1.5px solid var(--ink);
+            background:var(--cream-2);
+            padding:0;
+        }
+        .quick-rail-head{
+            display:flex;align-items:center;gap:18px;
+            padding:18px 32px;border-bottom:1.5px solid var(--ink);
+            background:var(--ink);color:var(--cream);
+        }
+        .quick-rail-head .e{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+        .quick-rail-head h4{color:var(--cream);font-size:1.1rem;font-style:italic;font-weight:400;margin-left:auto;font-family:'Fraunces',serif}
+        .quick-rail-grid{
+            display:grid;grid-template-columns:repeat(4,1fr);
+        }
+        .quick{
+            display:flex;align-items:center;gap:18px;
+            padding:24px 28px;
+            border-right:1.5px solid var(--ink);
+            text-align:left;
+            transition:var(--t);
+            cursor:pointer;
+        }
+        .quick:last-child{border-right:none}
+        .quick:hover{background:var(--terracotta);color:var(--cream)}
+        .quick:hover .quick-num{color:var(--cream);border-color:var(--cream)}
+        .quick:hover small{color:rgba(255,255,255,.8)}
+        .quick-num{
+            width:54px;height:54px;border-radius:50%;
+            border:1.5px solid var(--ink);
+            display:grid;place-items:center;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.4rem;
+            flex-shrink:0;color:var(--ink);
+            transition:var(--t);
+        }
+        .quick strong{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;margin-bottom:3px}
+        .quick small{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+        /* SECTION BASE */
+        section.s{padding:120px 0;position:relative}
+        .head{
+            display:grid;grid-template-columns:1.1fr 1fr;
+            gap:60px;margin-bottom:70px;align-items:end;
+        }
+        .head .left .stamp{
+            display:inline-flex;align-items:center;gap:12px;
+            font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+            letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);
+            margin-bottom:22px;
+        }
+        .head .left .stamp::before{content:'§';color:var(--ink);font-style:italic;font-size:1.2rem;font-family:'Fraunces',serif}
+        .head h2{
+            font-size:clamp(2rem,4.4vw,3.6rem);
+            font-weight:300;
+        }
+        .head h2 em{font-style:italic;color:var(--terracotta);font-weight:400}
+        .head .right{padding-bottom:8px}
+        .head .right p{font-size:1.06rem;color:var(--ink-2);max-width:480px}
+
+        /* WHAT */
+        #what{background:var(--paper);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+        .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+        .drop-cap::first-letter{
+            font-family:'Fraunces',serif;
+            font-size:5.4rem;
+            font-weight:500;
+            float:left;
+            line-height:.85;
+            margin:6px 12px 0 0;
+            color:var(--terracotta);
+            font-style:italic;
+        }
+        .what-text p{font-size:1.05rem;margin-bottom:18px;color:var(--ink-2)}
+        .what-points{
+            display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px;
+        }
+        .what-point{
+            padding:20px 18px;
+            border:1.5px solid var(--ink);border-radius:14px;
+            background:var(--cream);
+            transition:var(--t);
+        }
+        .what-point:hover{background:var(--ink);color:var(--cream)}
+        .what-point:hover .wp-num,.what-point:hover small,.what-point:hover strong{color:var(--cream)}
+        .wp-num{
+            font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+            color:var(--terracotta);letter-spacing:.16em;text-transform:uppercase;
+            display:block;margin-bottom:10px;
+        }
+        .what-point strong{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.1rem;margin-bottom:4px}
+        .what-point small{font-size:.84rem;color:var(--muted)}
+
+        /* TIMELINE / ANTES E AGORA */
+        .timeline{
+            background:var(--cream-2);border:1.5px solid var(--ink);
+            border-radius:18px;padding:36px;
+            position:relative;overflow:hidden;
+        }
+        .timeline::before{
+            content:'§';position:absolute;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:600;
+            font-size:18rem;color:rgba(27,20,16,.04);
+            right:-30px;bottom:-100px;
+            line-height:1;
+        }
+        .timeline h4{font-size:1.4rem;font-style:italic;font-weight:500;margin-bottom:30px}
+        .tl-item{
+            padding:22px 0;border-bottom:1px dashed var(--rule);
+            display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:start;
+            position:relative;z-index:1;
+        }
+        .tl-item:last-child{border-bottom:none}
+        .tl-tag{
+            font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+            letter-spacing:.16em;text-transform:uppercase;
+            padding:6px 10px;border-radius:6px;
+            background:var(--ink);color:var(--cream);
+            text-align:center;
+        }
+        .tl-item:nth-child(1) .tl-tag{background:var(--burgundy)}
+        .tl-item:nth-child(2) .tl-tag{background:var(--olive)}
+        .tl-item:nth-child(3) .tl-tag{background:var(--terracotta)}
+        .tl-item h5{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.15rem;margin-bottom:6px;color:var(--ink)}
+        .tl-item p{font-size:.92rem;color:var(--ink-2)}
+
+        /* CODES CATALOG */
+        #codes{background:var(--cream)}
+        .ctrl{
+            display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+            margin-bottom:50px;
+            padding:18px;border:1.5px solid var(--ink);border-radius:18px;
+            background:var(--paper);
+        }
+        .search{
+            flex:1;min-width:260px;
+            display:flex;align-items:center;gap:12px;
+            background:var(--cream);border:1.5px solid var(--ink);border-radius:999px;
+            padding:12px 22px;
+        }
+        .search i{color:var(--terracotta)}
+        .search input{
+            border:none;outline:none;background:transparent;
+            font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;
+            width:100%;color:var(--ink);
+        }
+        .search input::placeholder{color:var(--muted);font-style:italic}
+        .chips{display:flex;gap:8px;flex-wrap:wrap}
+        .chip{
+            padding:10px 18px;border-radius:999px;
+            background:var(--cream);
+            border:1.5px solid var(--ink);
+            font-size:.84rem;font-weight:600;
+            transition:var(--t);
+        }
+        .chip:hover{background:var(--cream-2)}
+        .chip.on{background:var(--ink);color:var(--cream)}
+
+        .grid-codes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+        .card{
+            background:var(--paper);
+            border:1.5px solid var(--ink);
+            border-radius:18px;padding:26px;
+            display:flex;flex-direction:column;
+            transition:var(--t);
+            position:relative;overflow:hidden;
+        }
+        .card::before{
+            content:'';position:absolute;top:0;left:0;width:100%;height:6px;
+            background:var(--terracotta);transform:scaleX(0);transform-origin:left;
+            transition:transform .4s ease;
+        }
+        .card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+        .card:hover::before{transform:scaleX(1)}
+
+        .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+        .card-code{
+            font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+            background:var(--ink);color:var(--cream);
+            padding:4px 12px;border-radius:6px;
+            letter-spacing:.06em;
+        }
+        .card-cat{
+            font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+            text-transform:uppercase;letter-spacing:.14em;color:var(--muted);
+        }
+        .card h3{
+            font-size:1.3rem;font-weight:500;font-style:italic;
+            margin-bottom:10px;color:var(--ink);
+            font-variation-settings:"opsz" 144;
+        }
+        .card p.desc{font-size:.92rem;color:var(--ink-2);margin-bottom:18px;flex-grow:1}
+        .card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+        .card-tags span{
+            font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+            padding:4px 9px;border:1px solid var(--rule);border-radius:5px;
+            color:var(--muted);background:var(--cream);
+        }
+        .card-act{display:flex;gap:8px}
+        .card-act .btn{flex:1;padding:11px 14px;font-size:.82rem}
+        .card-act .btn-out i{font-size:.85rem}
+        .empty{
+            grid-column:1/-1;
+            padding:50px;text-align:center;color:var(--muted);
+            border:2px dashed var(--rule);border-radius:18px;
+            background:var(--paper);
+        }
+
+        /* HOW STEPS */
+        #how{background:var(--paper);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+        .steps{
+            display:grid;grid-template-columns:repeat(4,1fr);
+            border:1.5px solid var(--ink);
+            border-radius:22px;overflow:hidden;
+            background:var(--cream);
+        }
+        .step{
+            padding:36px 26px;
+            border-right:1.5px solid var(--ink);
+            position:relative;
+        }
+        .step:last-child{border-right:none}
+        .step:hover{background:var(--cream-2)}
+        .step-num{
+            font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+            font-size:4.5rem;line-height:1;
+            color:var(--terracotta);
+            margin-bottom:24px;
+            font-variation-settings:"opsz" 144;
+        }
+        .step h4{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;margin-bottom:10px}
+        .step p{font-size:.9rem;color:var(--ink-2)}
+
+        /* SICALC */
+        #sicalc{background:var(--burgundy);color:var(--cream);position:relative;overflow:hidden}
+        #sicalc::before{
+            content:'SICALC';position:absolute;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+            font-size:24rem;color:rgba(255,255,255,.04);
+            right:-40px;top:-80px;line-height:1;letter-spacing:-.05em;
+        }
+        #sicalc h2,#sicalc .head h2{color:var(--cream)}
+        #sicalc .head h2 em{color:var(--gold)}
+        #sicalc .head .stamp{color:var(--gold)}
+        #sicalc .head .stamp::before{color:var(--cream)}
+        #sicalc .head .right p{color:rgba(246,239,227,.78)}
+
+        .sic-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+        .sic-window{
+            background:var(--cream);color:var(--ink);
+            border-radius:14px;border:1.5px solid var(--ink);
+            box-shadow:10px 10px 0 var(--ink);
+            overflow:hidden;
+            transform:rotate(-1deg);
+            transition:var(--t);
+        }
+        .sic-window:hover{transform:rotate(0)}
+        .sic-bar{
+            background:var(--ink);color:var(--cream);
+            padding:12px 18px;display:flex;align-items:center;gap:8px;
+        }
+        .sic-bar .d{width:11px;height:11px;border-radius:50%;background:var(--cream);opacity:.4}
+        .sic-bar .d:nth-child(1){background:#FF5C5C;opacity:1}
+        .sic-bar .d:nth-child(2){background:#FFB547;opacity:1}
+        .sic-bar .d:nth-child(3){background:#5BC470;opacity:1}
+        .sic-bar .url{margin-left:14px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--gold)}
+        .sic-body{padding:26px}
+        .sic-line{
+            display:flex;justify-content:space-between;
+            padding:13px 0;border-bottom:1px dashed var(--rule);
+            font-family:'IBM Plex Mono',monospace;font-size:.82rem;
+        }
+        .sic-line:last-child{border-bottom:none}
+        .sic-line .k{color:var(--muted)}
+        .sic-line .v{color:var(--ink);font-weight:500}
+        .sic-line .v.ok{color:var(--olive)}
+        .sic-act{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+        .sic-pill{
+            padding:10px 16px;border-radius:999px;
+            font-size:.82rem;font-weight:600;
+            display:inline-flex;align-items:center;gap:8px;
+            border:1.5px solid var(--ink);
+        }
+        .sic-pill.ink{background:var(--ink);color:var(--cream)}
+        .sic-pill.cream{background:var(--cream);color:var(--ink)}
+
+        .sic-text h2{
+            font-size:clamp(2rem,3.6vw,3rem);font-weight:300;margin-bottom:22px;
+        }
+        .sic-text h2 em{color:var(--gold);font-style:italic;font-weight:400}
+        .sic-text p{color:rgba(246,239,227,.82);font-size:1.04rem;margin-bottom:30px}
+        .sic-list{display:grid;gap:14px}
+        .sic-list li{
+            display:flex;gap:14px;align-items:flex-start;
+            padding:14px 18px;
+            background:rgba(255,255,255,.06);
+            border:1px solid rgba(255,255,255,.12);
+            border-radius:12px;
+        }
+        .sic-list li i{color:var(--gold);font-size:1rem;margin-top:3px;flex-shrink:0}
+        .sic-list li span{color:rgba(246,239,227,.92);font-size:.95rem}
+
+        /* DISCLOSURE / NOSSO PAPEL */
+        #papel{background:var(--cream)}
+        .disc{
+            display:grid;grid-template-columns:1.1fr 1fr;gap:60px;
+            background:var(--paper);
+            border:1.5px solid var(--ink);
+            border-radius:24px;
+            padding:60px;
+            position:relative;overflow:hidden;
+            box-shadow:10px 10px 0 var(--terracotta);
+        }
+        .disc::before{
+            content:'?';position:absolute;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+            font-size:30rem;color:rgba(194,86,44,.05);
+            right:-50px;bottom:-180px;line-height:1;
+        }
+        .disc-tag{
+            display:inline-flex;align-items:center;gap:10px;
+            padding:6px 14px;border-radius:999px;
+            background:var(--gold);color:var(--ink);
+            font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+            letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+            margin-bottom:22px;
+        }
+        .disc h2{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:300;margin-bottom:20px}
+        .disc h2 em{font-style:italic;color:var(--terracotta);font-weight:400}
+        .disc p{font-size:1.04rem;color:var(--ink-2);margin-bottom:18px}
+        .disc-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+
+        .roles{display:grid;gap:10px;position:relative;z-index:1}
+        .role{
+            display:grid;grid-template-columns:48px 1fr;
+            gap:16px;align-items:center;
+            padding:16px 20px;
+            border:1.5px solid var(--ink);border-radius:14px;
+            background:var(--cream);
+            transition:var(--t);
+        }
+        .role:hover{transform:translateX(6px)}
+        .role-ic{
+            width:48px;height:48px;border-radius:12px;
+            display:grid;place-items:center;font-size:1rem;
+            border:1.5px solid var(--ink);
+        }
+        .ic-yes{background:var(--olive);color:var(--cream)}
+        .ic-no{background:var(--burgundy);color:var(--cream)}
+        .role strong{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.04rem;color:var(--ink);margin-bottom:2px}
+        .role small{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+        /* COURSE */
+        #course{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+        #course::before{
+            content:'';position:absolute;
+            top:50%;left:50%;transform:translate(-50%,-50%);
+            width:1100px;height:1100px;border-radius:50%;
+            border:1.5px dashed rgba(246,239,227,.06);
+            pointer-events:none;
+        }
+        #course .head h2,#course h2{color:var(--cream)}
+        #course .head h2 em{color:var(--gold)}
+        #course .head .stamp{color:var(--gold)}
+        #course .head .stamp::before{color:var(--cream)}
+        #course .head .right p{color:rgba(246,239,227,.78)}
+
+        .course-card{
+            display:grid;grid-template-columns:1.2fr 1fr;gap:60px;
+            padding:56px;
+            background:var(--paper);color:var(--ink);
+            border-radius:24px;border:1.5px solid var(--gold);
+            position:relative;z-index:1;
+            box-shadow:0 30px 60px rgba(0,0,0,.4);
+        }
+        .course-tag{
+            display:inline-flex;align-items:center;gap:8px;
+            padding:6px 14px;border-radius:999px;
+            background:var(--burgundy);color:var(--cream);
+            font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+            letter-spacing:.14em;text-transform:uppercase;
+            margin-bottom:18px;
+        }
+        .course-card h2{
+            font-size:clamp(2rem,3.4vw,2.7rem);font-weight:300;margin-bottom:18px;color:var(--ink);
+        }
+        .course-card h2 em{color:var(--terracotta);font-style:italic;font-weight:400}
+        .course-card p.desc{color:var(--ink-2);margin-bottom:28px;font-size:1.02rem}
+        .modules{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:30px}
+        .module{
+            display:flex;gap:12px;align-items:center;
+            padding:14px 16px;border-radius:12px;
+            background:var(--cream);border:1.5px solid var(--ink);
+        }
+        .module .mn{
+            font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+            font-size:1.4rem;color:var(--terracotta);min-width:34px;
+        }
+        .module span{font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:500;color:var(--ink)}
+        .course-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+        .price{
+            background:var(--ink);color:var(--cream);
+            border-radius:18px;padding:38px 30px;
+            text-align:center;position:relative;
+            border:1.5px solid var(--gold);
+        }
+        .price .pop{
+            position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+            background:var(--gold);color:var(--ink);
+            font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+            padding:5px 16px;border-radius:999px;font-weight:700;
+            letter-spacing:.14em;text-transform:uppercase;
+            border:1.5px solid var(--ink);
+        }
+        .price h4{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.15rem;color:var(--cream);margin-bottom:10px}
+        .price .from{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px}
+        .price .v{
+            font-family:'Fraunces',serif;font-weight:300;font-size:4rem;
+            color:var(--cream);line-height:1;margin-bottom:6px;
+            font-variation-settings:"opsz" 144;
+        }
+        .price .v small{font-size:1.4rem;color:var(--gold);margin-left:4px}
+        .price .cy{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:rgba(246,239,227,.7);margin-bottom:24px}
+        .price ul{text-align:left;margin-bottom:26px}
+        .price ul li{
+            padding:9px 0;font-size:.86rem;color:rgba(246,239,227,.92);
+            display:flex;gap:12px;align-items:center;
+            border-bottom:1px dashed rgba(246,239,227,.12);
+        }
+        .price ul li:last-child{border-bottom:none}
+        .price ul li i{color:var(--gold);font-size:.78rem;flex-shrink:0}
+        .price .btn{width:100%;border-color:var(--gold);background:var(--gold);color:var(--ink)}
+        .price .btn:hover{background:var(--cream);border-color:var(--cream);color:var(--ink);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--burgundy)}
+
+        /* TESTIMONIALS */
+        #testi{background:var(--cream)}
+        .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+        .testi{
+            background:var(--paper);
+            border:1.5px solid var(--ink);
+            border-radius:18px;padding:30px;
+            position:relative;
+            transition:var(--t);
+        }
+        .testi:nth-child(1){transform:rotate(-1.2deg)}
+        .testi:nth-child(2){transform:rotate(.6deg)}
+        .testi:nth-child(3){transform:rotate(-.4deg)}
+        .testi:hover{transform:rotate(0) translateY(-4px);box-shadow:6px 6px 0 var(--terracotta)}
+        .testi .q{
+            font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+            font-size:5rem;line-height:.4;
+            color:var(--terracotta);
+            margin-bottom:18px;
+        }
+        .testi p{
+            font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+            font-size:1.08rem;color:var(--ink);margin-bottom:24px;
+            font-variation-settings:"opsz" 9;
+        }
+        .testi-author{
+            display:flex;align-items:center;gap:14px;
+            padding-top:18px;border-top:1px dashed var(--rule);
+        }
+        .testi-av{
+            width:48px;height:48px;border-radius:50%;
+            background:var(--ink);color:var(--cream);
+            display:grid;place-items:center;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.1rem;
+            border:1.5px solid var(--ink);
+        }
+        .testi-author strong{display:block;font-size:.92rem;color:var(--ink)}
+        .testi-author small{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+        /* FAQ */
+        #faq{background:var(--paper);border-top:1.5px solid var(--ink)}
+        .faq-list{max-width:880px;margin:0 auto}
+        .faq-item{
+            border-bottom:1.5px solid var(--ink);
+            transition:var(--t);
+        }
+        .faq-item:first-child{border-top:1.5px solid var(--ink)}
+        .faq-q{
+            width:100%;text-align:left;
+            padding:26px 0;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.18rem;
+            color:var(--ink);
+            display:flex;justify-content:space-between;align-items:center;gap:20px;
+        }
+        .faq-q .pl{
+            width:36px;height:36px;border-radius:50%;
+            border:1.5px solid var(--ink);
+            display:grid;place-items:center;
+            font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;
+            font-size:1.2rem;font-weight:300;
+            transition:transform .35s ease;flex-shrink:0;
+            color:var(--ink);
+        }
+        .faq-item.open .pl{transform:rotate(45deg);background:var(--ink);color:var(--cream)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+        .faq-item.open .faq-a{max-height:400px}
+        .faq-a p{padding:0 0 26px 0;color:var(--ink-2);font-size:1rem;max-width:760px}
+
+        /* FINAL CTA */
+        #final{padding:120px 0;background:var(--cream)}
+        .final-card{
+            background:var(--terracotta);color:var(--cream);
+            border:1.5px solid var(--ink);
+            border-radius:24px;
+            padding:70px;
+            display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;
+            position:relative;overflow:hidden;
+            box-shadow:14px 14px 0 var(--ink);
+        }
+        .final-card::before{
+            content:'';position:absolute;
+            top:-150px;right:-100px;
+            width:480px;height:480px;border-radius:50%;
+            background:rgba(246,239,227,.08);
+        }
+        .final-card::after{
+            content:'§';position:absolute;
+            font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+            font-size:18rem;color:rgba(0,0,0,.08);
+            bottom:-110px;right:90px;line-height:1;
+        }
+        .final-card h2{
+            font-size:clamp(2.2rem,4vw,3.2rem);
+            color:var(--cream);font-weight:300;margin-bottom:18px;
+            position:relative;z-index:1;
+        }
+        .final-card h2 em{font-style:italic;color:var(--gold);font-weight:400}
+        .final-card p{color:rgba(246,239,227,.92);font-size:1.1rem;max-width:520px;position:relative;z-index:1}
+        .final-act{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:1}
+        .final-card .btn-ink{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+        .final-card .btn-ink:hover{background:var(--cream);color:var(--ink);box-shadow:4px 4px 0 var(--burgundy)}
+        .final-card .btn-out{border-color:var(--cream);color:var(--cream)}
+        .final-card .btn-out:hover{background:var(--cream);color:var(--terracotta);box-shadow:4px 4px 0 var(--ink)}
+
+        /* FOOTER */
+        footer{
+            background:var(--ink);color:var(--cream);
+            padding:80px 0 30px;
+        }
+        .foot-grid{
+            display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+            gap:60px;
+            padding-bottom:50px;
+            border-bottom:1px solid rgba(246,239,227,.16);
+            margin-bottom:30px;
+        }
+        .foot-brand p{color:rgba(246,239,227,.7);font-size:.92rem;margin:20px 0 24px;max-width:340px}
+        .foot-brand .brand-mark{background:var(--gold);color:var(--ink)}
+        .foot-brand .brand-mark::after{border-color:var(--gold)}
+        .foot-brand .brand-name b{color:var(--cream)}
+        .foot-brand .brand-name i{color:var(--gold)}
+        .social{display:flex;gap:10px}
+        .social a{
+            width:42px;height:42px;border-radius:50%;
+            background:rgba(246,239,227,.08);color:var(--cream);
+            border:1px solid rgba(246,239,227,.18);
+            display:grid;place-items:center;
+            transition:var(--t);
+        }
+        .social a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+        .foot h5{
+            font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+            letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+            margin-bottom:20px;
+        }
+        .foot ul li{padding:7px 0}
+        .foot ul li a{color:rgba(246,239,227,.7);font-size:.92rem;transition:var(--t)}
+        .foot ul li a:hover{color:var(--cream)}
+        .foot ul li i{color:var(--gold);margin-right:8px;width:14px;text-align:center}
+        .foot-bottom{
+            display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+            color:rgba(246,239,227,.5);font-size:.82rem;
+            font-family:'IBM Plex Mono',monospace;
+        }
+
+        /* WHATSAPP FAB */
+        .wa{
+            position:fixed;right:24px;bottom:24px;z-index:50;
+            width:62px;height:62px;border-radius:50%;
+            background:#25D366;color:#fff;
+            display:grid;place-items:center;
+            font-size:1.6rem;
+            border:1.5px solid var(--ink);
+            box-shadow:4px 4px 0 var(--ink);
+            transition:var(--t);
+        }
+        .wa:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+
+        /* MODAL */
+        .modal-back{
+            position:fixed;inset:0;z-index:100;
+            background:rgba(27,20,16,.7);backdrop-filter:blur(6px);
+            display:none;align-items:center;justify-content:center;
+            padding:20px;
+        }
+        .modal-back.show{display:flex}
+        .modal{
+            background:var(--paper);
+            border:1.5px solid var(--ink);
+            border-radius:22px;padding:40px;
+            max-width:520px;width:100%;
+            position:relative;
+            box-shadow:10px 10px 0 var(--terracotta);
+        }
+        .modal-x{
+            position:absolute;top:18px;right:18px;
+            width:38px;height:38px;border-radius:50%;
+            background:var(--ink);color:var(--cream);
+            display:grid;place-items:center;
+            transition:var(--t);
+        }
+        .modal-x:hover{background:var(--terracotta)}
+        .modal-ic{
+            width:60px;height:60px;border-radius:50%;
+            background:var(--terracotta);color:var(--cream);
+            display:grid;place-items:center;
+            font-size:1.4rem;margin-bottom:18px;
+            border:1.5px solid var(--ink);
+        }
+        .modal h3{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.7rem;margin-bottom:6px}
+        .modal-code{font-family:'IBM Plex Mono',monospace;font-size:.84rem;color:var(--terracotta);margin-bottom:14px;letter-spacing:.06em}
+        .modal p{color:var(--ink-2);font-size:.95rem;margin-bottom:24px}
+        .modal-opts{display:grid;gap:10px;margin-bottom:20px}
+        .modal-opt{
+            display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:center;
+            padding:14px 18px;
+            border:1.5px solid var(--ink);border-radius:14px;
+            background:var(--cream);color:var(--ink);
+            transition:var(--t);
+        }
+        .modal-opt:hover{background:var(--ink);color:var(--cream);transform:translateX(4px)}
+        .modal-opt:hover small{color:rgba(246,239,227,.7)}
+        .modal-opt:hover .modal-opt-ic{background:var(--gold)}
+        .modal-opt-ic{
+            width:46px;height:46px;border-radius:12px;
+            background:var(--terracotta);color:var(--cream);
+            display:grid;place-items:center;
+            border:1.5px solid var(--ink);
+        }
+        .modal-opt strong{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.05rem}
+        .modal-opt small{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+        .modal-foot{font-size:.78rem;color:var(--muted);text-align:center;font-style:italic}
+
+        /* REVEAL */
+        .rev{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+        .rev.in{opacity:1;transform:translateY(0)}
+
+        /* MOBILE NAV */
+        .mob-nav{
+            position:fixed;top:90px;left:16px;right:16px;
+            background:var(--cream);border:1.5px solid var(--ink);border-radius:18px;
+            padding:18px;z-index:55;display:none;
+            box-shadow:6px 6px 0 var(--ink);
+        }
+        .mob-nav.open{display:block}
+        .mob-nav a{
+            display:block;padding:13px 16px;border-radius:10px;
+            color:var(--ink);font-weight:500;font-size:.96rem;
+        }
+        .mob-nav a:hover{background:var(--cream-2)}
+
+        /* RESPONSIVE */
+        @media (max-width:1100px){
+            .hero-grid,.what-grid,.sic-grid,.disc,.course-card,.head{grid-template-columns:1fr;gap:50px}
+            .head .right{padding-bottom:0}
+            .grid-codes,.testi-grid{grid-template-columns:repeat(2,1fr)}
+            .quick-rail-grid{grid-template-columns:repeat(2,1fr)}
+            .quick:nth-child(2n){border-right:none}
+            .quick:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
+            .steps{grid-template-columns:repeat(2,1fr)}
+            .step:nth-child(2n){border-right:none}
+            .step:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
+            .foot-grid{grid-template-columns:1fr 1fr}
+            .final-card{grid-template-columns:1fr;text-align:left;padding:50px}
+            .final-act{justify-content:flex-start}
+            .modules{grid-template-columns:1fr}
+        }
+        @media (max-width:720px){
+            nav.menu,.nav-actions .btn-out{display:none}
+            .ham{display:flex}
+            .hero{padding:50px 0 40px}
+            section.s,#final{padding:80px 0}
+            .grid-codes,.testi-grid,.quick-rail-grid,.steps,.what-points,.foot-grid,.modules{grid-template-columns:1fr}
+            .quick,.step{border-right:none;border-bottom:1.5px solid var(--ink)}
+            .quick:last-child,.step:last-child{border-bottom:none}
+            .disc,.course-card,.final-card{padding:36px}
+            .modal{padding:28px}
+            .foot-bottom{flex-direction:column;text-align:center}
+        }
+    </style>
+</head>
+<body>
+
+<!-- RIBBON -->
+<div class="ribbon">
+    <div class="ribbon-track">
+        <span>DARF Pronto · Tributos sem mistério</span>
+        <span>Curso DARF &amp; SICALC · 12+ horas de aulas</span>
+        <span>Selic acumulada · cálculo idêntico ao oficial</span>
+        <span>Educação tributária para investidores e PF</span>
+        <span>DARF Pronto · Tributos sem mistério</span>
+        <span>Curso DARF &amp; SICALC · 12+ horas de aulas</span>
+        <span>Selic acumulada · cálculo idêntico ao oficial</span>
+        <span>Educação tributária para investidores e PF</span>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="nav">
+    <div class="nav-inner">
+        <a href="#top" class="brand">
+            <div class="brand-mark">D</div>
+            <div class="brand-name">
+                <b>CONDOMINIO VARGEM LIMPA </b>
+                <i>CONTABILIDADE</i>
+            </div>
+        </a>
+        <nav class="menu">
+            <a href="#what" class="">O que é</a>
+            <a href="#codes" class="">Códigos</a>
+            <a href="#how" class="">Passo a passo</a>
+            <a href="#sicalc" class="">SICALC</a>
+            <a href="#papel" class="">Nosso papel</a>
+            <a href="#course" class="">Curso</a>
+            <a href="#faq" class="active">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="tel:+551136679888" class="btn btn-out"><i class="fas fa-phone"></i> (11) 3667-9888</a>
+            <a href="#codes" class="btn btn-terra"><i class="fas fa-feather"></i> Encontrar meu código</a>
+        </div>
+        <button class="ham" id="hamBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="mob-nav" id="mobNav">
+        <a href="#what">O que é</a>
+        <a href="#codes">Códigos</a>
+        <a href="#how">Passo a passo</a>
+        <a href="#sicalc">SICALC</a>
+        <a href="#papel">Nosso papel</a>
+        <a href="#course">Curso</a>
+        <a href="#faq">FAQ</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="wrap hero-grid">
+        <div>
+            <div class="eyebrow"><span class="num">PARCERIA COM emigraraaustraliaya </span> · Edição online</div>
+            <h1>
+                Pague o tributo<br>
+                certo, com o<br>
+                <span class="hl">código certo</span>,<br>
+                sem <span class="ul">decorar leis</span>.
+            </h1>
+            <p class="lead">
+                A gente traduz o SICALC, mostra o caminho do DARF e te ensina a apurar com a tranquilidade de quem sabe o que está fazendo. Sem jargão. Sem susto.
+            </p>
+            <div class="hero-cta">
+                <a href="#codes" class="btn btn-terra"><i class="fas fa-magnifying-glass"></i> Encontrar meu código</a>
+                <a href="#what" class="btn btn-out"><i class="fas fa-book-open"></i> Como começar</a>
+            </div>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <span class="v num-mono">90<small>s</small></span>
+                    <span class="l">Tempo médio</span>
+                </div>
+                <div class="meta-item">
+                    <span class="v num-mono">12<small>+</small></span>
+                    <span class="l">Códigos catalogados</span>
+                </div>
+                <div class="meta-item">
+                    <span class="v"><em class="serif">Selic</em></span>
+                    <span class="l">Tabela atualizada</span>
+                </div>
+                <div class="meta-item">
+                    <span class="v num-mono">7<small>d</small></span>
+                    <span class="l">Garantia do curso</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="postal rev in">
+                <div class="postal-stamp"><i>Receita<br><b>Federal</b>BR</i></div>
+                <div class="postal-head">Documento de Arrecadação · DARF</div>
+                <h3>Receita Federal do Brasil</h3>
+                <div class="sub">série · 2026 · pagador único</div>
+
+                <div class="postal-rows">
+                    <div class="postal-row">
+                        <div class="postal-cell"><div class="lab">Cód. da receita</div><div class="val num-mono">0190</div></div>
+                        <div class="postal-cell"><div class="lab">Período</div><div class="val num-mono">04/2026</div></div>
+                    </div>
+                    <div class="postal-row full">
+                        <div class="postal-cell"><div class="lab">Contribuinte</div><div class="val">João da Silva — CPF 123.456.789-00</div></div>
+                    </div>
+                    <div class="postal-row">
+                        <div class="postal-cell"><div class="lab">Vencimento</div><div class="val num-mono">31/05/2026</div></div>
+                        <div class="postal-cell"><div class="lab">Multa + Juros</div><div class="val num-mono">R$ 0,00</div></div>
+                    </div>
+                </div>
+
+                <div class="postal-total">
+                    <span class="l">Valor total</span>
+                    <span class="v num-mono">R$ 482,90</span>
+                </div>
+
+                <div class="postal-bar">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="postal-line num-mono">85800000004 · 82900100190 · 31052026000 · 482900045132</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUICK RAIL -->
+<div class="quick-rail">
+    <div class="quick-rail-head">
+        <span class="e">Atalhos populares</span>
+        <h4>os códigos que mais aparecem por aqui</h4>
+    </div>
+    <div class="quick-rail-grid">
+        <button class="quick" data-emit="" data-code="0190" data-name="IRPF — Carnê-Leão (Mensalão)">
+            <div class="quick-num">i</div>
+            <div><strong>Carnê-Leão</strong><small>Código 0190</small></div>
+        </button>
+        <button class="quick" data-emit="" data-code="6015" data-name="IRPF — Renda Variável (Bolsa)">
+            <div class="quick-num">ii</div>
+            <div><strong>Renda Variável</strong><small>Código 6015</small></div>
+        </button>
+        <button class="quick" data-emit="" data-code="4600" data-name="IRPF — Ganho de Capital">
+            <div class="quick-num">iii</div>
+            <div><strong>Ganho de Capital</strong><small>Código 4600</small></div>
+        </button>
+        <button class="quick" data-emit="" data-code="3208" data-name="IRRF — Aluguéis e Royalties (PF)">
+            <div class="quick-num">iv</div>
+            <div><strong>Aluguéis</strong><small>Código 3208</small></div>
+        </button>
+    </div>
+</div>
+
+<!-- WHAT -->
+<section class="s" id="what">
+    <div class="wrap">
+        <div class="head">
+            <div class="left">
+                <div class="stamp">Capítulo I · O que é</div>
+                <h2>Um documento que <em>parece bicho de sete cabeças</em>, mas tem só quatro orelhas.</h2>
+            </div>
+            <div class="right">
+                <p>O DARF — Documento de Arrecadação de Receitas Federais — é o formulário oficial da Receita para pagar tributos federais: IRPF, IRRF, IRPJ, CSLL, PIS, Cofins, IOF e por aí vai.</p>
+            </div>
+        </div>
+
+        <div class="what-grid">
+            <div class="what-text rev in">
+                <p class="drop-cap">Sempre que uma pessoa física ou jurídica precisa recolher um tributo federal específico — como o imposto sobre ganhos na bolsa, sobre aluguel recebido ou sobre rendimentos do exterior — o pagamento é feito através de um DARF.</p>
+                <p>Cada situação tem o seu <strong>código de receita</strong>. Errar o código significa que o pagamento não é reconhecido — e o que vem depois é malha fina, juros e dor de cabeça desnecessária.</p>
+
+                <div class="what-points">
+                    <div class="what-point">
+                        <span class="wp-num">i · Código</span>
+                        <strong>4 dígitos</strong>
+                        <small>Identifica qual tributo está sendo pago</small>
+                    </div>
+                    <div class="what-point">
+                        <span class="wp-num">ii · Período</span>
+                        <strong>Mês/Ano</strong>
+                        <small>Quando o fato gerador aconteceu</small>
+                    </div>
+                    <div class="what-point">
+                        <span class="wp-num">iii · CPF/CNPJ</span>
+                        <strong>Contribuinte</strong>
+                        <small>Quem está fazendo o recolhimento</small>
+                    </div>
+                    <div class="what-point">
+                        <span class="wp-num">iv · Total</span>
+                        <strong>Valor + Juros</strong>
+                        <small>Multa de mora e Selic acumulada</small>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="timeline rev in">
+                <h4>Antes era assim. Agora ficou simples.</h4>
+                <div class="tl-item">
+                    <span class="tl-tag">Antes</span>
+                    <div>
+                        <h5>O caminho longo</h5>
+                        <p>Você abria o site da Receita, baixava o SICALC offline, instalava no Windows, descobria o código no escuro, preenchia tudo no braço e rezava para o cálculo bater.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-tag">Agora</span>
+                    <div>
+                        <h5>O caminho leve</h5>
+                        <p>Você procura a sua situação na linguagem que você fala, entende o que está pagando, e segue o passo a passo do SICALC com instruções na mão.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-tag">Em atraso?</span>
+                    <div>
+                        <h5>O caminho seguro</h5>
+                        <p>Mostramos como calcular a multa de mora (0,33% ao dia, limitada a 20%) e os juros pela Selic acumulada — exatamente como o SICALC oficial faz.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- CODES CATALOG -->
+<section class="s" id="codes">
+    <div class="wrap">
+        <div class="head">
+            <div class="left">
+                <div class="stamp">Capítulo II · Catálogo</div>
+                <h2>Encontre o seu código e <em>entenda para que serve</em>.</h2>
+            </div>
+            <div class="right">
+                <p>Pesquise por nome ou código. Cada item explica para que serve, mostra quem precisa pagar e abre o caminho para a emissão pelo SICALC oficial.</p>
+            </div>
+        </div>
+
+        <div class="ctrl">
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="codeSearch" placeholder="Buscar por código (ex: 0190) ou nome (ex: aluguel, bolsa, carnê-leão)…">
+            </div>
+            <div class="chips" id="filterChips">
+                <button class="chip on" data-cat="todos">Todos</button>
+                <button class="chip" data-cat="pf">Pessoa Física</button>
+                <button class="chip" data-cat="pj">Pessoa Jurídica</button>
+                <button class="chip" data-cat="renda-variavel">Renda Variável</button>
+                <button class="chip" data-cat="retencoes">Retenções</button>
+            </div>
+        </div>
+
+        <div class="grid-codes" id="codesGrid">
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 0190</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Carnê-Leão</h3>
+                <p class="desc">Imposto de Renda mensal de pessoas físicas que recebem rendimentos sem retenção na fonte (autônomos, aluguéis recebidos de PF, exterior).</p>
+                <div class="card-tags"><span>Mensal</span><span>PF</span><span>Sem retenção</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="0190" data-name="IRPF — Carnê-Leão"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="0190" data-name="IRPF — Carnê-Leão" data-desc="Imposto de Renda mensal de pessoas físicas que recebem rendimentos sem retenção na fonte (autônomos, aluguéis recebidos de PF, exterior)."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 4600</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Ganho de Capital</h3>
+                <p class="desc">Imposto sobre o lucro obtido na venda de imóveis, veículos, ações e outros bens por pessoa física.</p>
+                <div class="card-tags"><span>Imóveis</span><span>Veículos</span><span>Único</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="4600" data-name="IRPF — Ganho de Capital"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="4600" data-name="IRPF — Ganho de Capital" data-desc="Imposto sobre o lucro obtido na venda de imóveis, veículos, ações e outros bens por pessoa física."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 6015</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Renda Variável (Bolsa)</h3>
+                <p class="desc">Imposto sobre ganhos líquidos em operações comuns na bolsa de valores (swing trade) por pessoa física.</p>
+                <div class="card-tags"><span>Bolsa</span><span>Mensal</span><span>15%</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="6015" data-name="IRPF — Renda Variável (Bolsa)"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="6015" data-name="IRPF — Renda Variável (Bolsa)" data-desc="Imposto sobre ganhos líquidos em operações comuns na bolsa de valores (swing trade) por pessoa física."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 8053</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Day Trade</h3>
+                <p class="desc">Imposto sobre ganhos líquidos em operações de Day Trade na bolsa, com alíquota de 20%.</p>
+                <div class="card-tags"><span>Day Trade</span><span>Mensal</span><span>20%</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="8053" data-name="IRPF — Day Trade"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="8053" data-name="IRPF — Day Trade" data-desc="Imposto sobre ganhos líquidos em operações de Day Trade na bolsa, com alíquota de 20%."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 3208</span>
+                    <span class="card-cat">Retenções</span>
+                </div>
+                <h3>IRRF — Aluguéis e Royalties (PF)</h3>
+                <p class="desc">Retenção de IR sobre aluguéis e royalties pagos por pessoa jurídica a pessoa física.</p>
+                <div class="card-tags"><span>Aluguel</span><span>Retenção</span><span>PJ→PF</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="3208" data-name="IRRF — Aluguéis e Royalties (PF)"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="3208" data-name="IRRF — Aluguéis e Royalties (PF)" data-desc="Retenção de IR sobre aluguéis e royalties pagos por pessoa jurídica a pessoa física."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 0561</span>
+                    <span class="card-cat">Retenções</span>
+                </div>
+                <h3>IRRF — Trabalho Assalariado</h3>
+                <p class="desc">Retenção de IR sobre salários, vantagens, aposentadorias e remunerações em geral pagas por PJ.</p>
+                <div class="card-tags"><span>Salário</span><span>Mensal</span><span>Folha</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="0561" data-name="IRRF — Trabalho Assalariado"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="0561" data-name="IRRF — Trabalho Assalariado" data-desc="Retenção de IR sobre salários, vantagens, aposentadorias e remunerações em geral pagas por PJ."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 1708</span>
+                    <span class="card-cat">Retenções</span>
+                </div>
+                <h3>IRRF — Serviços Profissionais (PJ)</h3>
+                <p class="desc">Retenção de IR sobre prestação de serviços profissionais entre pessoas jurídicas (consultoria, auditoria, advocacia).</p>
+                <div class="card-tags"><span>Serviços</span><span>PJ→PJ</span><span>1,5%</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="1708" data-name="IRRF — Serviços Profissionais (PJ)"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="1708" data-name="IRRF — Serviços Profissionais (PJ)" data-desc="Retenção de IR sobre prestação de serviços profissionais entre pessoas jurídicas (consultoria, auditoria, advocacia)."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 0220</span>
+                    <span class="card-cat">Pessoa Jurídica</span>
+                </div>
+                <h3>IRPJ — Lucro Real (Estimativa)</h3>
+                <p class="desc">Imposto de Renda mensal das pessoas jurídicas tributadas pelo Lucro Real por estimativa.</p>
+                <div class="card-tags"><span>Lucro Real</span><span>Mensal</span><span>PJ</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="0220" data-name="IRPJ — Lucro Real (Estimativa)"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="0220" data-name="IRPJ — Lucro Real (Estimativa)" data-desc="Imposto de Renda mensal das pessoas jurídicas tributadas pelo Lucro Real por estimativa."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 2089</span>
+                    <span class="card-cat">Pessoa Jurídica</span>
+                </div>
+                <h3>CSLL — Estimativa Mensal</h3>
+                <p class="desc">Contribuição Social sobre o Lucro Líquido apurada por estimativa mensal pelo Lucro Real.</p>
+                <div class="card-tags"><span>CSLL</span><span>Mensal</span><span>Lucro Real</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="2089" data-name="CSLL — Estimativa Mensal"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="2089" data-name="CSLL — Estimativa Mensal" data-desc="Contribuição Social sobre o Lucro Líquido apurada por estimativa mensal pelo Lucro Real."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 6912</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Aluguéis recebidos do Exterior</h3>
+                <p class="desc">IR sobre rendimentos de aluguéis e royalties recebidos do exterior por pessoa física residente no Brasil.</p>
+                <div class="card-tags"><span>Exterior</span><span>Aluguel</span><span>Mensal</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="6912" data-name="IRPF — Aluguéis recebidos do Exterior"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="6912" data-name="IRPF — Aluguéis recebidos do Exterior" data-desc="IR sobre rendimentos de aluguéis e royalties recebidos do exterior por pessoa física residente no Brasil."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 5952</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Trabalho s/ vínculo</h3>
+                <p class="desc">IR mensal sobre rendimentos do trabalho recebidos por PF de outras pessoas físicas, sem vínculo empregatício.</p>
+                <div class="card-tags"><span>Autônomo</span><span>Mensal</span><span>PF</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="5952" data-name="IRPF — Trabalho s/ vínculo"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="5952" data-name="IRPF — Trabalho s/ vínculo" data-desc="IR mensal sobre rendimentos do trabalho recebidos por PF de outras pessoas físicas, sem vínculo empregatício."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · 5232</span>
+                    <span class="card-cat">Pessoa Física</span>
+                </div>
+                <h3>IRPF — Fundos Imobiliários</h3>
+                <p class="desc">Imposto sobre ganhos de capital obtidos na alienação de cotas de Fundos Imobiliários (FIIs).</p>
+                <div class="card-tags"><span>FII</span><span>20%</span><span>Mensal</span></div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit="" data-code="5232" data-name="IRPF — Fundos Imobiliários"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info="" data-code="5232" data-name="IRPF — Fundos Imobiliários" data-desc="Imposto sobre ganhos de capital obtidos na alienação de cotas de Fundos Imobiliários (FIIs)."><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- HOW -->
+<section class="s" id="how">
+    <div class="wrap">
+        <div class="head">
+            <div class="left">
+                <div class="stamp">Capítulo III · Passo a passo</div>
+                <h2>Quatro movimentos. <em>Nada além disso</em>.</h2>
+            </div>
+            <div class="right">
+                <p>O método que você aprende no curso é o mesmo que aplicamos quando ajudamos um aluno a apurar pela primeira vez. Sem atalhos perigosos.</p>
+            </div>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">i</div>
+                <h4>Identifique o caso</h4>
+                <p>Procure pelo código DARF ou pela situação real (Carnê-Leão, ganho na bolsa, aluguel recebido…).</p>
+            </div>
+            <div class="step">
+                <div class="step-num">ii</div>
+                <h4>Reúna os dados</h4>
+                <p>CPF/CNPJ, período de apuração e valor base. Tenha em mãos o extrato ou o cálculo do mês.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">iii</div>
+                <h4>Calcule no SICALC</h4>
+                <p>Valor principal, multa de mora, juros Selic e total atualizado até a data efetiva do pagamento.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">iv</div>
+                <h4>Pague o DARF</h4>
+                <p>Imprima, copie a linha digitável ou pague direto via Pix copia e cola. Guarde sempre o comprovante.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SICALC -->
+<section class="s" id="sicalc">
+    <div class="wrap">
+        <div class="head">
+            <div class="left">
+                <div class="stamp">Capítulo IV · SICALC</div>
+                <h2>Falamos a língua do <em>SICALC</em> — para você não precisar.</h2>
+            </div>
+            <div class="right">
+                <p>O Sistema de Cálculo de Acréscimos Legais é a ferramenta oficial da Receita Federal. Por trás de cada DARF que você aprende a emitir aqui, são as mesmas regras: Selic acumulada, multa de mora e tabelas oficiais.</p>
+            </div>
+        </div>
+
+        <div class="sic-grid">
+            <div class="sic-window rev in">
+                <div class="sic-bar">
+                    <span class="d"></span><span class="d"></span><span class="d"></span>
+                    <span class="url">sicalc.receita.economia.gov.br/calcular</span>
+                </div>
+                <div class="sic-body">
+                    <div class="sic-line"><span class="k">Código de Receita</span><span class="v">0190</span></div>
+                    <div class="sic-line"><span class="k">Período de Apuração</span><span class="v">04/2026</span></div>
+                    <div class="sic-line"><span class="k">Vencimento</span><span class="v">31/05/2026</span></div>
+                    <div class="sic-line"><span class="k">Valor Principal</span><span class="v">R$ 482,90</span></div>
+                    <div class="sic-line"><span class="k">Multa de Mora</span><span class="v">R$ 0,00</span></div>
+                    <div class="sic-line"><span class="k">Juros (Selic)</span><span class="v">R$ 0,00</span></div>
+                    <div class="sic-line"><span class="k">Status</span><span class="v ok">DARF emitido</span></div>
+                    <div class="sic-act">
+                        <span class="sic-pill ink"><i class="fas fa-download"></i> Baixar PDF</span>
+                        <span class="sic-pill cream"><i class="fas fa-qrcode"></i> Pix copia e cola</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sic-text">
+                <h2>Sem mistério, sem aproximação, <em>sem chute</em>.</h2>
+                <p>O cálculo que você aprende a executar é idêntico ao do SICALC oficial. A nossa missão é tirar o medo: depois do curso, abrir o sistema da Receita deixa de ser uma aventura.</p>
+                <ul class="sic-list">
+                    <li><i class="fas fa-check"></i><span>Cálculo idêntico ao SICALC oficial — sem aproximações.</span></li>
+                    <li><i class="fas fa-check"></i><span>Tabela Selic acumulada explicada e atualizada mensalmente.</span></li>
+                    <li><i class="fas fa-check"></i><span>DARFs em atraso recalculados até a data prevista de pagamento.</span></li>
+                    <li><i class="fas fa-check"></i><span>Histórico de cada apuração com a justificativa por escrito.</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DISCLOSURE / PAPEL -->
+<section class="s" id="papel">
+    <div class="wrap">
+        <div class="disc rev in">
+            <div>
+                <span class="disc-tag"><i class="fas fa-info-circle"></i> Aviso importante</span>
+                <h2>Nós te <em>ensinamos</em> a emitir o DARF.<br>Nós não emitimos por você.</h2>
+                <p>Para que fique 100% claro: a <strong>DARF Pronto</strong> é uma empresa de <strong>educação tributária</strong>. O nosso produto principal é o <strong>curso de DARF e SICALC</strong>, no qual você aprende, passo a passo, a apurar, calcular e gerar o seu próprio DARF — com segurança e independência.</p>
+                <p>Não realizamos a emissão do DARF no seu nome, não acessamos sua conta da Receita e não substituímos seu contador. Te damos a base, as ferramentas e o caminho — quem aperta o botão é você (ou o seu contador, se preferir).</p>
+                <div class="disc-cta">
+                    <a href="#course" class="btn btn-terra"><i class="fas fa-graduation-cap"></i> Quero aprender no curso</a>
+                    <a href="https://wa.me/5511956990377" target="_blank" rel="noopener" class="btn btn-out"><i class="fab fa-whatsapp"></i> Tirar uma dúvida</a>
+                </div>
+            </div>
+            <div class="roles">
+                <div class="role">
+                    <div class="role-ic ic-yes"><i class="fas fa-check"></i></div>
+                    <div><strong>Ensinamos a teoria e a prática</strong><small>Aulas, planilhas e exemplos reais</small></div>
+                </div>
+                <div class="role">
+                    <div class="role-ic ic-yes"><i class="fas fa-check"></i></div>
+                    <div><strong>Mostramos como usar o SICALC oficial</strong><small>Passo a passo, do login ao DARF gerado</small></div>
+                </div>
+                <div class="role">
+                    <div class="role-ic ic-yes"><i class="fas fa-check"></i></div>
+                    <div><strong>Tiramos suas dúvidas durante o curso</strong><small>Suporte direto com instrutor</small></div>
+                </div>
+                <div class="role">
+                    <div class="role-ic ic-no"><i class="fas fa-xmark"></i></div>
+                    <div><strong>Não emitimos DARF no seu nome</strong><small>Quem opera o SICALC é você</small></div>
+                </div>
+                <div class="role">
+                    <div class="role-ic ic-no"><i class="fas fa-xmark"></i></div>
+                    <div><strong>Não fazemos contabilidade</strong><small>Procure um contador para escrituração</small></div>
+                </div>
+                <div class="role">
+                    <div class="role-ic ic-no"><i class="fas fa-xmark"></i></div>
+                    <div><strong>Não acessamos seu CPF/CNPJ</strong><small>Seus dados ficam só com você</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COURSE -->
+<section class="s" id="course">
+    <div class="wrap">
+        <div class="head" style="grid-template-columns:1fr;text-align:center">
+            <div class="left">
+                <div class="stamp" style="justify-content:center">Capítulo V · Curso DARF &amp; SICALC</div>
+                <h2 style="max-width:900px;margin:0 auto">Quer entender de verdade o que está por trás de cada <em>DARF</em>?</h2>
+                <p style="margin:22px auto 0;max-width:680px;color:rgba(246,239,227,.78)">Nosso curso completo ensina, do zero ao avançado, como dominar o SICALC, escolher os códigos certos e nunca mais errar uma apuração.</p>
+            </div>
+        </div>
+
+        <div class="course-card rev in">
+            <div>
+                <span class="course-tag"><i class="fas fa-graduation-cap"></i> Curso completo</span>
+                <h2>Domine o <em>DARF e o SICALC</em> de uma vez por todas</h2>
+                <p class="desc">Mais de 12 horas de aulas práticas, com casos reais, planilhas e o passo a passo para todas as situações que aparecem no dia a dia de quem trabalha com tributos federais — ou cuida da própria empresa.</p>
+                <div class="modules">
+                    <div class="module"><span class="mn">i</span><span>Fundamentos do DARF</span></div>
+                    <div class="module"><span class="mn">ii</span><span>SICALC na prática</span></div>
+                    <div class="module"><span class="mn">iii</span><span>Tabela de códigos</span></div>
+                    <div class="module"><span class="mn">iv</span><span>Multa, juros e Selic</span></div>
+                    <div class="module"><span class="mn">v</span><span>IRRF e retenções</span></div>
+                    <div class="module"><span class="mn">vi</span><span>Renda variável</span></div>
+                </div>
+                <div class="course-cta">
+                    <a href="#" class="btn btn-ink"><i class="fas fa-play"></i> Acessar primeira aula grátis</a>
+                    <a href="#" class="btn btn-out"><i class="fas fa-download"></i> Ementa completa (PDF)</a>
+                </div>
+            </div>
+            <div class="price">
+                <div class="pop">★ Mais vendido</div>
+                <h4>Curso DARF &amp; SICALC</h4>
+                <div class="from">a partir de</div>
+                <div class="v num-mono">R$ 49<small>,90</small></div>
+                <div class="cy">por mês · ou R$ 497 à vista</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 12+ horas de aulas em vídeo</li>
+                    <li><i class="fas fa-check"></i> Planilhas e templates editáveis</li>
+                    <li><i class="fas fa-check"></i> Acesso vitalício a atualizações</li>
+                    <li><i class="fas fa-check"></i> Certificado de conclusão</li>
+                    <li><i class="fas fa-check"></i> Suporte direto com instrutor</li>
+                    <li><i class="fas fa-check"></i> Garantia incondicional de 7 dias</li>
+                </ul>
+                <a href="#" class="btn"><i class="fas fa-bolt"></i> Quero me inscrever</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="s" id="testi">
+    <div class="wrap">
+        <div class="head">
+            <div class="left">
+                <div class="stamp">Capítulo VI · Quem já passou por aqui</div>
+                <h2>A vida ficou <em>mais leve</em> depois do DARF Pronto.</h2>
+            </div>
+            <div class="right">
+                <p>Histórias reais de gente que parou de ter pavor do dia 30 — investidores, autônomos, locadores, contadores e MEIs.</p>
+            </div>
+        </div>
+
+        <div class="testi-grid">
+            <div class="testi rev in">
+                <div class="q">“</div>
+                <p>Eu vivia perdida tentando descobrir qual código usar para o aluguel que recebo. Em poucos cliques achei o caminho certo, com juros calculados. Salvou meu mês.</p>
+                <div class="testi-author">
+                    <div class="testi-av">M</div>
+                    <div><strong>Mariana Castro</strong><small>Proprietária · São Paulo/SP</small></div>
+                </div>
+            </div>
+            <div class="testi rev in">
+                <div class="q">“</div>
+                <p>Faço day trade e o DARF 6015 todo mês era um inferno no SICALC. Agora gero e pago direto pelo Pix. O curso me ajudou a entender a lógica também.</p>
+                <div class="testi-author">
+                    <div class="testi-av">R</div>
+                    <div><strong>Rafael Tavares</strong><small>Investidor · Rio de Janeiro/RJ</small></div>
+                </div>
+            </div>
+            <div class="testi rev in">
+                <div class="q">“</div>
+                <p>Sou contadora e indico para clientes pessoa física. Reduziu MUITO o volume de chamados sobre Carnê-Leão e ganho de capital aqui no escritório.</p>
+                <div class="testi-author">
+                    <div class="testi-av">P</div>
+                    <div><strong>Patrícia Souza</strong><small>Contadora · Belo Horizonte/MG</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="s" id="faq">
+    <div class="wrap">
+        <div class="head" style="grid-template-columns:1fr;text-align:center">
+            <div class="left">
+                <div class="stamp" style="justify-content:center">Capítulo VII · Perguntas frequentes</div>
+                <h2 style="max-width:780px;margin:0 auto">Tudo o que você precisa saber sobre o <em>DARF</em>.</h2>
+            </div>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-q">O que é o código de receita do DARF?<span class="pl">+</span></button>
+                <div class="faq-a"><p>É o número de 4 dígitos que identifica qual tributo você está pagando. Por exemplo, o código 0190 é usado para o Carnê-Leão (IRPF mensal de pessoas físicas com rendimentos sem retenção na fonte). Errar esse código significa pagar para o tributo errado.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">Posso emitir DARF em atraso?<span class="pl">+</span></button>
+                <div class="faq-a"><p>Sim. Basta informar o período de apuração original e a data prevista de pagamento. O cálculo precisa considerar a multa de mora (0,33% ao dia, limitada a 20%) e os juros Selic acumulada — e ensinamos exatamente isso no curso.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">O cálculo é igual ao do SICALC oficial?<span class="pl">+</span></button>
+                <div class="faq-a"><p>Sim. Usamos as mesmas regras, tabelas e bases oficiais publicadas pela Receita Federal. O resultado é idêntico ao que o SICALC produziria — apenas com explicações em português claro.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">Como pago o DARF gerado?<span class="pl">+</span></button>
+                <div class="faq-a"><p>Você pode imprimir e pagar em qualquer banco, copiar a linha digitável e pagar pelo internet banking, ou pagar diretamente via Pix copia e cola. O comprovante deve ser guardado por pelo menos 5 anos.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">O curso de DARF e SICALC vale para concursos?<span class="pl">+</span></button>
+                <div class="faq-a"><p>O curso é prático e voltado para uso profissional. Ele cobre toda a base teórica e prática que aparece em concursos da área tributária e fiscal, mas não substitui materiais específicos de banca.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">Preciso ser contador para usar o DARF Pronto?<span class="pl">+</span></button>
+                <div class="faq-a"><p>Não. A plataforma foi desenhada para qualquer pessoa que precisa pagar um tributo federal — investidores, autônomos, locadores, MEIs, profissionais liberais. As explicações são em linguagem simples e direta.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final">
+    <div class="wrap">
+        <div class="final-card rev in">
+            <div>
+                <h2>Pronto para virar a página com o seu primeiro <em>DARF sem dor de cabeça</em>?</h2>
+                <p>Em menos de 2 minutos você está pronto para apurar, calcular e gerar — com a tranquilidade de quem entende cada linha do documento.</p>
+            </div>
+            <div class="final-act">
+                <a href="#codes" class="btn btn-ink"><i class="fas fa-feather"></i> Encontrar meu código</a>
+                <a href="#course" class="btn btn-out"><i class="fas fa-graduation-cap"></i> Conhecer o curso</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand foot">
+                <div class="brand">
+                    <div class="brand-mark">D</div>
+                    <div class="brand-name">
+                        <b>DARF Pronto</b>
+                        <i>Editorial · SICALC</i>
+                    </div>
+                </div>
+                <p>Plataforma de educação tributária para emissão de DARF com base nas regras do SICALC. Não somos a Receita Federal — somos um caminho legal e claro para quem precisa pagar tributos federais sem complicação.</p>
+                <div class="social">
+                    <a href="https://www.instagram.com/gomidecontabilidade/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/watch?v=yMlNDLDlk2c" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://br.linkedin.com/company/contabilidadeoficial" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/5511956990377" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="foot">
+                <h5>Plataforma</h5>
+                <ul>
+                    <li><a href="#what">O que é DARF</a></li>
+                    <li><a href="#codes">Códigos DARF</a></li>
+                    <li><a href="#how">Passo a passo</a></li>
+                    <li><a href="#sicalc">SICALC</a></li>
+                </ul>
+            </div>
+            <div class="foot">
+                <h5>Curso</h5>
+                <ul>
+                    <li><a href="#course">Curso DARF &amp; SICALC</a></li>
+                    <li><a href="#course">Aula gratuita</a></li>
+                    <li><a href="#course">Ementa completa</a></li>
+                    <li><a href="#course">Para empresas</a></li>
+                </ul>
+            </div>
+            <div class="foot">
+                <h5>Contato</h5>
+                <ul>
+                    <li><a href="tel:+551136679888"><i class="fas fa-phone"></i> (11) 3997-9888</a></li>
+                    <li><a href="https://wa.me/5511956990377" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> (11) 95699-0388</a></li>
+                    <li><a href="#"><i class="fas fa-location-dot"></i>R EDEMUR MORALLES - COND CASAS - BAIRRO VARGEM LIMPA I  - CEP : 17.023-024</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <span>© 2026 CONDOMINIO VARGEM LIMPA CONTABILIDADE em parceria com emigraraaustraliaya · CNPJ 47.895.227/0001-06 · Todos os direitos reservados</span>
+            <span>Edição editorial · v 3.0.0</span>
+        </div>
+    </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5511956990377" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<!-- MODAL -->
+<div class="modal-back" id="modalBack">
+    <div class="modal">
+        <button class="modal-x" id="modalX" aria-label="Fechar"><i class="fas fa-times"></i></button>
+        <div class="modal-ic"><i class="fas fa-feather"></i></div>
+        <h3>Emitir DARF</h3>
+        <div class="modal-code" id="modalCode">Código —</div>
+        <p id="modalDesc">Escolha como você prefere prosseguir. O cálculo é o mesmo em qualquer caminho — ele segue as regras oficiais do SICALC.</p>
+        <div class="modal-opts">
+            <a href="https://sicalc.receita.economia.gov.br" target="_blank" rel="noopener" class="modal-opt">
+                <div class="modal-opt-ic"><i class="fas fa-arrow-up-right-from-square"></i></div>
+                <div><strong>Abrir o SICALC oficial</strong><small>Você emite o DARF no site da Receita</small></div>
+            </a>
+            <a href="#course" class="modal-opt">
+                <div class="modal-opt-ic"><i class="fas fa-graduation-cap"></i></div>
+                <div><strong>Aprender no curso DARF &amp; SICALC</strong><small>Passo a passo guiado · com instrutor</small></div>
+            </a>
+            <a href="https://wa.me/5511956990377" target="_blank" rel="noopener" class="modal-opt">
+                <div class="modal-opt-ic"><i class="fab fa-whatsapp"></i></div>
+                <div><strong>Falar com nossa equipe</strong><small>Tirar dúvidas pelo WhatsApp</small></div>
+            </a>
+        </div>
+        <div class="modal-foot">A DARF Pronto é uma empresa de educação tributária — orientamos, mas não emitimos o DARF no seu nome.</div>
+    </div>
+</div>
+
+<script>
+    const DARF_CODES = [
+        { code:'0190', name:'IRPF — Carnê-Leão', desc:'Imposto de Renda mensal de pessoas físicas que recebem rendimentos sem retenção na fonte (autônomos, aluguéis recebidos de PF, exterior).', cat:['pf'], tags:['Mensal','PF','Sem retenção'] },
+        { code:'4600', name:'IRPF — Ganho de Capital', desc:'Imposto sobre o lucro obtido na venda de imóveis, veículos, ações e outros bens por pessoa física.', cat:['pf'], tags:['Imóveis','Veículos','Único'] },
+        { code:'6015', name:'IRPF — Renda Variável (Bolsa)', desc:'Imposto sobre ganhos líquidos em operações comuns na bolsa de valores (swing trade) por pessoa física.', cat:['pf','renda-variavel'], tags:['Bolsa','Mensal','15%'] },
+        { code:'8053', name:'IRPF — Day Trade', desc:'Imposto sobre ganhos líquidos em operações de Day Trade na bolsa, com alíquota de 20%.', cat:['pf','renda-variavel'], tags:['Day Trade','Mensal','20%'] },
+        { code:'3208', name:'IRRF — Aluguéis e Royalties (PF)', desc:'Retenção de IR sobre aluguéis e royalties pagos por pessoa jurídica a pessoa física.', cat:['retencoes','pf'], tags:['Aluguel','Retenção','PJ→PF'] },
+        { code:'0561', name:'IRRF — Trabalho Assalariado', desc:'Retenção de IR sobre salários, vantagens, aposentadorias e remunerações em geral pagas por PJ.', cat:['retencoes'], tags:['Salário','Mensal','Folha'] },
+        { code:'1708', name:'IRRF — Serviços Profissionais (PJ)', desc:'Retenção de IR sobre prestação de serviços profissionais entre pessoas jurídicas (consultoria, auditoria, advocacia).', cat:['retencoes','pj'], tags:['Serviços','PJ→PJ','1,5%'] },
+        { code:'0220', name:'IRPJ — Lucro Real (Estimativa)', desc:'Imposto de Renda mensal das pessoas jurídicas tributadas pelo Lucro Real por estimativa.', cat:['pj'], tags:['Lucro Real','Mensal','PJ'] },
+        { code:'2089', name:'CSLL — Estimativa Mensal', desc:'Contribuição Social sobre o Lucro Líquido apurada por estimativa mensal pelo Lucro Real.', cat:['pj'], tags:['CSLL','Mensal','Lucro Real'] },
+        { code:'6912', name:'IRPF — Aluguéis recebidos do Exterior', desc:'IR sobre rendimentos de aluguéis e royalties recebidos do exterior por pessoa física residente no Brasil.', cat:['pf'], tags:['Exterior','Aluguel','Mensal'] },
+        { code:'5952', name:'IRPF — Trabalho s/ vínculo', desc:'IR mensal sobre rendimentos do trabalho recebidos por PF de outras pessoas físicas, sem vínculo empregatício.', cat:['pf'], tags:['Autônomo','Mensal','PF'] },
+        { code:'5232', name:'IRPF — Fundos Imobiliários', desc:'Imposto sobre ganhos de capital obtidos na alienação de cotas de Fundos Imobiliários (FIIs).', cat:['pf','renda-variavel'], tags:['FII','20%','Mensal'] },
+    ];
+
+    const grid = document.getElementById('codesGrid');
+    const search = document.getElementById('codeSearch');
+    const chips = document.getElementById('filterChips');
+    let currentCat = 'todos';
+    let currentSearch = '';
+
+    function catLabel(c){
+        return c==='pf'?'Pessoa Física':c==='pj'?'Pessoa Jurídica':c==='retencoes'?'Retenções':'Renda Variável';
+    }
+
+    function renderCodes(){
+        const q = currentSearch.trim().toLowerCase();
+        const filtered = DARF_CODES.filter(c=>{
+            const matchCat = currentCat==='todos' || c.cat.includes(currentCat);
+            const matchSearch = !q
+                || c.code.toLowerCase().includes(q)
+                || c.name.toLowerCase().includes(q)
+                || c.desc.toLowerCase().includes(q)
+                || c.tags.some(t=>t.toLowerCase().includes(q));
+            return matchCat && matchSearch;
+        });
+
+        if(filtered.length===0){
+            grid.innerHTML = '<div class="empty"><i class="fas fa-search" style="display:block;font-size:1.5rem;margin-bottom:12px;color:var(--terracotta)"></i> Nenhum código encontrado. Tente outro termo ou troque o filtro.</div>';
+            return;
+        }
+
+        grid.innerHTML = filtered.map(c=>`
+            <article class="card">
+                <div class="card-top">
+                    <span class="card-code">DARF · ${c.code}</span>
+                    <span class="card-cat">${catLabel(c.cat[0])}</span>
+                </div>
+                <h3>${c.name}</h3>
+                <p class="desc">${c.desc}</p>
+                <div class="card-tags">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+                <div class="card-act">
+                    <button class="btn btn-ink" data-emit data-code="${c.code}" data-name="${c.name}"><i class="fas fa-feather"></i> Emitir DARF</button>
+                    <button class="btn btn-out" data-info data-code="${c.code}" data-name="${c.name}" data-desc="${c.desc.replace(/"/g,'&quot;')}"><i class="fas fa-circle-info"></i></button>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    renderCodes();
+
+    search.addEventListener('input', e => { currentSearch = e.target.value; renderCodes(); });
+
+    chips.addEventListener('click', e => {
+        const btn = e.target.closest('.chip');
+        if(!btn) return;
+        chips.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+        btn.classList.add('on');
+        currentCat = btn.dataset.cat;
+        renderCodes();
+    });
+
+    // MODAL
+    const modalBack = document.getElementById('modalBack');
+    const modalX = document.getElementById('modalX');
+    const modalCode = document.getElementById('modalCode');
+    const modalDesc = document.getElementById('modalDesc');
+
+    function openModal(code, name, descOverride){
+        modalCode.textContent = `Código ${code} — ${name}`;
+        modalDesc.textContent = descOverride
+            ? descOverride
+            : 'Escolha como você prefere prosseguir. O cálculo é o mesmo em qualquer caminho — ele segue as regras oficiais do SICALC.';
+        modalBack.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+        modalBack.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    modalX.addEventListener('click', closeModal);
+    modalBack.addEventListener('click', e => { if(e.target === modalBack) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+    document.body.addEventListener('click', e => {
+        const emitBtn = e.target.closest('[data-emit]');
+        if(emitBtn){
+            e.preventDefault();
+            openModal(emitBtn.dataset.code, emitBtn.dataset.name);
+            return;
+        }
+        const infoBtn = e.target.closest('[data-info]');
+        if(infoBtn){
+            e.preventDefault();
+            openModal(infoBtn.dataset.code, infoBtn.dataset.name, infoBtn.dataset.desc);
+        }
+    });
+
+    // FAQ
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const q = item.querySelector('.faq-q');
+        q.addEventListener('click', () => {
+            const open = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+            if(!open) item.classList.add('open');
+        });
+    });
+
+    // MOBILE NAV
+    const hamBtn = document.getElementById('hamBtn');
+    const mobNav = document.getElementById('mobNav');
+    hamBtn.addEventListener('click', () => mobNav.classList.toggle('open'));
+    mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+
+    // REVEAL
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+    // ACTIVE NAV
+    const sections = ['what','codes','how','sicalc','papel','course','faq'].map(id => document.getElementById(id)).filter(Boolean);
+    const navLinks = document.querySelectorAll('nav.menu a');
+    const navIo = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if(e.isIntersecting){
+                navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => navIo.observe(s));
+</script>
+
+
+</body></html>
